@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import org.eclipse.jdt.internal.compiler.ast.ThisReference;
-
 import com.dbHelper.DbHelper;
 import com.entity.Cart;
 import com.entity.User;
@@ -14,18 +11,50 @@ import com.entity.User;
 public class UserDao {
 	private final static String TAG = "com.dao.UserDao";
 
-	public boolean addUser(User user) {
-		return true;
+	public boolean addUser(User user) throws SQLException {
+		Connection con = DbHelper.getConnection();
+		// ≤ª…Ëid
+		String username = user.getUserName();
+		String password = user.getPassword();
+		double account = user.getAccount();
+		String location = user.getLocation();
+		int cartId = 0;
+		if (user.getMyCart() != null)
+			cartId = user.getMyCart().getId();
+
+		String sql = "INSERT users VALUES (NULL,?,?,?,?,?,NULL)";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, username);
+		ps.setString(2, password);
+		ps.setDouble(3, account);
+		ps.setString(4, location);
+		ps.setInt(5, cartId);
+		return ps.execute();
+		// ResultSet rSet = ps.executeQuery();
+
 	}
 
-	public boolean deleteUser(User user) {
-		return true;
+	public boolean deleteUser(User user) throws SQLException {
+		Connection con = DbHelper.getConnection();
+		String sql = "DELETE FROM users where id= ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, user.getId());
+
+		return ps.execute();
+	}
+
+	public boolean deleteUserById(int id) throws SQLException {
+		Connection con = DbHelper.getConnection();
+		String sql = "DELETE FROM users where id= ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, id);
+		return ps.execute();
 	}
 
 	public User getUserById(int id) throws SQLException {
 		User user = new User();
-		Cart cart=new Cart();
-		cart=null;
+		Cart cart = new Cart();
+		cart = null;
 		Connection con = DbHelper.getConnection();
 		String sql = "SELECT * FROM users where id =?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -38,15 +67,16 @@ public class UserDao {
 			user.setPassword(rSet.getString("password"));
 			user.setAccount(rSet.getDouble("account"));
 			user.setLocation(rSet.getString("location"));
-			int cId=rSet.getInt("cartId");
-			if(cId!=0){
-				//if cart exists
+			int cId = rSet.getInt("cartId");
+			if (cId != 0) {
+				// if cart exists
 				cart.setId(cId);
-				//!!!!get cart By ID!!!!!!!!!!!!!
-				
+				// !!!!!!!!!!!!!!!!!!!!
+				// !!!!get cart By ID!!!!!!!!!!!!!
+
 			}
-			//System.out.println(TAG+"cartid"+cId);
-			
+			// System.out.println(TAG+"cartid"+cId);
+
 		}
 
 		System.out.println(TAG + "  id:" + user.getId() + "  username:"
@@ -54,15 +84,17 @@ public class UserDao {
 				+ "  acount:" + user.getAccount());
 		return user;
 	}
-	//******test zone**********
-	public static void main(String[] arg) {
-		UserDao ud=new UserDao();
-		try {
-			User u=ud.getUserById(1);
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-	}
+
+	// ******test zone**********
+	/*
+	 * public static void main(String[] arg) { UserDao ud = new UserDao(); try {
+	 * User u = ud.getUserById(5); //ud.addUser(u); //ud.deleteUser(u);
+	 * ud.deleteUserById(3); } catch (SQLException e) {
+	 * 
+	 * e.printStackTrace(); }
+	 * 
+	 * 
+	 * }
+	 */
 
 }
