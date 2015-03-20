@@ -8,7 +8,7 @@ public class Item {
 	//the number of this item
 	private int num;
 	//license=0, not allow to sell, 1 allow to sell
-	private int license;
+	//private int license;
 	
 	private double price;
 	
@@ -19,16 +19,14 @@ public class Item {
 		this.id=-1;
 		this.name="";
 		this.num=0;
-		this.license=0;
 		this.price=0;
 		
 	}
 	
-	public Item(int id, String name, int num,int license, double price){
+	public Item(int id, String name, int num, double price){
 		this.id=id;
 		this.name=name;
 		this.num=num;
-		this.license=license;
 		this.price=price;
 		
 	}
@@ -38,7 +36,7 @@ public class Item {
 	@Override
 	public String toString() {
 		return id + ";" + name + ";" + num
-				+ ";" + license;
+				+ ";" ;
 	}
 	
 	//geter and setter
@@ -60,12 +58,7 @@ public class Item {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public int getLicense() {
-		return license;
-	}
-	public void setLicense(int license) {
-		this.license = license;
-	}
+
 	public double getPrice() {
 		return price;
 	}

@@ -51,6 +51,11 @@ public class UserDao {
 		return ps.execute();
 	}
 
+	/**
+	 * @param id
+	 * @return
+	 * @throws SQLException
+	 */
 	public User getUserById(int id) throws SQLException {
 		User user = new User();
 		Cart cart = new Cart();
@@ -69,13 +74,11 @@ public class UserDao {
 			user.setLocation(rSet.getString("location"));
 			int cId = rSet.getInt("cartId");
 			if (cId != 0) {
-				// if cart exists
-				cart.setId(cId);
-				// !!!!!!!!!!!!!!!!!!!!
-				// !!!!get cart By ID!!!!!!!!!!!!!
-
+			CartDao cd=new CartDao();
+			Cart myCart=cd.getCartById(cId);
+			user.setMyCart(myCart);
 			}
-			// System.out.println(TAG+"cartid"+cId);
+			
 
 		}
 

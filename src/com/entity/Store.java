@@ -7,25 +7,30 @@ public class Store {
 	private String name;
 	private ArrayList<Item> items; // item has "num" attribute
 	//the owner of the shop
-	private Seller owner;
-	// sales in this store
+	private int sellerId;
 	private double sales;
+	
+
+
+
 
 	public Store() {
 		id = 0;
 		name = "no_name";
 		items = new ArrayList<Item>();
-		owner = new Seller();
-		sales=0;
+		sellerId=0;
+
 	}
 
-	public Store(int id, String name, Seller seller) {
+
+
+	public Store(int id, String name, int sellerId) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.sellerId=sellerId;
 		items = new ArrayList<Item>();
-		owner = seller;
-		sales=0;
+
 	}
 
 	public boolean addItem(Item item) {
@@ -44,21 +49,27 @@ public class Store {
 	
 
 	// *******setter and getter****
-	
+
 	public double getSales() {
 		return sales;
 	}
 
+
+
 	public void setSales(double sales) {
 		this.sales = sales;
 	}
-	public Seller getOwner() {
-		return owner;
+
+	
+	public int getSellerId() {
+		return sellerId;
 	}
 
-	public void setOwner(Seller owner) {
-		this.owner = owner;
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
 	}
+	
+	
 
 	// setter and getter
 	public int getId() {

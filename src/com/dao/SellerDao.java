@@ -51,7 +51,6 @@ public class SellerDao extends UserDao {
 	public Seller getSellerById(int id) throws SQLException {
 		Seller seller = new Seller();
 		Cart cart = new Cart();
-		cart = null;
 		ArrayList<Store> stores=null;
 		Connection con = DbHelper.getConnection();
 		String sql = "SELECT * FROM users where id =?";
@@ -68,13 +67,9 @@ public class SellerDao extends UserDao {
 			//seller.setSales(rSet.getDouble("sales"));
 			int cId = rSet.getInt("cartId");
 			if (cId != 0) {
-				// if cart exists
-				//cart.setId(cId);
-				// !!!!!!!!!!!!!!!!!!!!
-				// !!!!get cart By ID!!!!!!!!!!!!!
-
+				CartDao cd= new CartDao();
+				cart=cd.getCartById(cId);					
 			}
-			//!!!!!!!!shop!!!!!!!!!!!!!!!
 			// System.out.println(TAG+"cartid"+cId);
 			seller.setMyCart(cart);
 			seller.setStores(stores);
@@ -97,8 +92,8 @@ public class SellerDao extends UserDao {
 		//mSeller.setSales(20);
 		Cart myCart=new Cart();
 		myCart.setId(3);
-		Item shoe=new Item(1, "shoe", 1, 1, 20.3);
-		Item cloth=new Item(2, "cloth", 3, 1, 22.2);
+		Item shoe=new Item(1, "shoe", 1,  20.3);
+		Item cloth=new Item(2, "cloth", 3,  22.2);
 		myCart.addItem(shoe, 2);
 		myCart.addItem(cloth, 1);
 		mSeller.setMyCart(myCart);

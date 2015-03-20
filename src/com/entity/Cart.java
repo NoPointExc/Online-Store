@@ -55,7 +55,7 @@ public class Cart {
 		while (it.hasNext()) {
 			Item crIt = it.next();
 			int crNum = itemList.get(crIt);
-			sum += (crIt.getPrice()) * crNum;
+			sum =sum+ (crIt.getPrice()) * crNum;
 		}
 		this.setTotalPrices(sum);
 	}
@@ -151,9 +151,9 @@ public class Cart {
 
 	/*
 	 * public static void main(String[] arg){ int i=0; //new Item(id, name, num,
-	 * license, price) Item item1=new Item(i++, "item1", 1, 1, 20.3); Item
-	 * item2=new Item(i++, "item2", 3, 1, 22.2); Item item3=new Item(i++,
-	 * "item3", 2, 1, 12.3); Cart myCart=new Cart(); myCart.addItem(item1, 2);
+	 * license, price) Item item1=new Item(i++, "item1", 1, 20.3); Item
+	 * item2=new Item(i++, "item2", 3,  22.2); Item item3=new Item(i++,
+	 * "item3", 2,  12.3); Cart myCart=new Cart(); myCart.addItem(item1, 2);
 	 * myCart.addItem(item2, 1); myCart.addItem(item3, 5);
 	 * System.out.println("***add****"); System.out.println(myCart.toString());
 	 * myCart.deleteItem(item1, 2);
