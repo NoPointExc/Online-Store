@@ -80,6 +80,38 @@ public class SellerDao extends UserDao {
 		return seller;
 	}
 	
+	public Seller getUserByUserName(String name) throws SQLException {
+		Seller seller = new Seller();
+		Cart cart = new Cart();
+		ArrayList<Store> stores=null;
+		Connection con = DbHelper.getConnection();
+		String sql = "SELECT * FROM users where username =?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, name);
+		ResultSet rSet = ps.executeQuery();
+
+		while (rSet.next()) {
+			seller.setId(rSet.getInt("id"));
+			seller.setUserName(rSet.getString("username"));
+			seller.setPassword(rSet.getString("password"));
+			seller.setAccount(rSet.getDouble("account"));
+			seller.setLocation(rSet.getString("location"));
+			//seller.setSales(rSet.getDouble("sales"));
+			int cId = rSet.getInt("cartId");
+			if (cId != 0) {
+				CartDao cd= new CartDao();
+				cart=cd.getCartById(cId);					
+			}
+			// System.out.println(TAG+"cartid"+cId);
+			seller.setMyCart(cart);
+			seller.setStores(stores);
+			
+			
+		}
+
+		return seller;
+	}
+	
 	//****test zone******** partly tested
 	/*
 	public static void main(String[] arg){

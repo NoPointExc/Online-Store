@@ -74,11 +74,10 @@ public class UserDao {
 			user.setLocation(rSet.getString("location"));
 			int cId = rSet.getInt("cartId");
 			if (cId != 0) {
-			CartDao cd=new CartDao();
-			Cart myCart=cd.getCartById(cId);
-			user.setMyCart(myCart);
+				CartDao cd = new CartDao();
+				Cart myCart = cd.getCartById(cId);
+				user.setMyCart(myCart);
 			}
-			
 
 		}
 
@@ -87,17 +86,85 @@ public class UserDao {
 				+ "  acount:" + user.getAccount());
 		return user;
 	}
+	
+	
+	/**
+	 * @param id
+	 * @return
+	 * @throws SQLException
+	 */
+	public User getUserByUserName(String name) throws SQLException {
+		User user = new User();
+		Cart cart = new Cart();
+		cart = null;
+		Connection con = DbHelper.getConnection();
+		String sql = "SELECT * FROM users where username =?";
+		PreparedStatement ps;
+		
+			ps = con.prepareStatement(sql);
+	
+		ps.setString(1, name);
+		ResultSet rSet = ps.executeQuery();
+
+		while (rSet.next()) {
+			user.setId(rSet.getInt("id"));
+			user.setUserName(rSet.getString("username"));
+			user.setPassword(rSet.getString("password"));
+			user.setAccount(rSet.getDouble("account"));
+			user.setLocation(rSet.getString("location"));
+			int cId = rSet.getInt("cartId");
+			if (cId != 0) {
+				CartDao cd = new CartDao();
+				Cart myCart = cd.getCartById(cId);
+				user.setMyCart(myCart);
+			}
+
+		}
+
+
+		return user;
+	}
+
+	
+	
+	/**
+	 * @param username
+	 * @param password
+	 * @return
+	 * @throws SQLException
+	 */
+	public boolean checkPassword(String username, String password)
+			throws SQLException {
+
+		Connection con = DbHelper.getConnection();
+		String sql = "SELECT * FROM users where username =?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, username);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			if (password.equals(rs.getString("password"))) {
+				return true;
+				}
+
+			}
+		
+		return false;
+	}
 
 	// ******test zone**********
-	/*
-	 * public static void main(String[] arg) { UserDao ud = new UserDao(); try {
-	 * User u = ud.getUserById(5); //ud.addUser(u); //ud.deleteUser(u);
-	 * ud.deleteUserById(3); } catch (SQLException e) {
-	 * 
-	 * e.printStackTrace(); }
-	 * 
-	 * 
-	 * }
-	 */
+/*
+	public static void main(String[] arg) {
+		UserDao ud = new UserDao();
+		try {
+			// User u = ud.getUserById(5); // ud.addUser(u); //ud.deleteUser(u);
+			// ud.deleteUserById(3);
+			boolean rs = ud.checkPassword("root", "sun721030");
+			System.out.println(TAG + rs);
+		} catch (SQLException e) {
 
+			e.printStackTrace();
+		}
+
+	}
+**/
 }
