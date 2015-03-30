@@ -68,6 +68,8 @@ public class CartDao {
 	}
 
 	public boolean addCart(Cart cart) throws SQLException {
+		//ensure input is not null
+		//if(cart==null) return false;
 		Connection con = DbHelper.getConnection();
 		String sql = "INSERT cart VALUES(null, ?, ?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -77,6 +79,7 @@ public class CartDao {
 		String itemNum = "";
 		Item currentIt;
 		HashMap<Item, Integer> itemList = new HashMap<Item, Integer>();
+		
 		itemList = cart.getItemList();
 		// 遍历itemList
 		Set<Item> keys = itemList.keySet();
@@ -125,6 +128,9 @@ public class CartDao {
 	 * @throws SQLException
 	 */
 	public boolean updateCart(Cart cart) throws SQLException {
+		
+		//ensure input is not null
+		if(cart==null) return false;
 		Connection con = DbHelper.getConnection();
 		String sql = "UPDATE cart SET itemid=?, itemNum=?, totalPrice=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -132,7 +138,7 @@ public class CartDao {
 		// 设置商品id 和数量
 		String itemId = "";
 		String itemNum = "";
-		Item currentIt;
+		Item currentIt=null;
 		HashMap<Item, Integer> itemList = new HashMap<Item, Integer>();
 		itemList = cart.getItemList();
 		// 遍历itemList
@@ -152,7 +158,6 @@ public class CartDao {
 	}
 
 	// *******test zone
-	
 	/*
 	public static void main(String[] arg) {
 		CartDao cd = new CartDao();
@@ -160,8 +165,8 @@ public class CartDao {
 		mcart.setId(2);
 		Item it = new Item(1, "laptop", 11, 11.2);
 		Item it2 = new Item(2, "shoe", 110, 11.2);
-		mcart.addItem(it, 10);
-		mcart.addItem(it2, 10);
+		//mcart.addItem(it, 10);
+		//mcart.addItem(it2, 10);
 
 		try {
 
@@ -171,16 +176,12 @@ public class CartDao {
 			 //cd.deleteCartById(17);
 			 //cd.deleteCartById(18);
 			//cd.updateCart(mcart);
-			mcart=cd.getCartById(19);
-			if(mcart!=null){
-			System.out.println(TAG+"  totalPrice:"+mcart.getTotalPrices());
-			}
+			//cd.addCart(null);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 	}
-	
-	**/
+	*/
 }

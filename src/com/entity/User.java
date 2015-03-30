@@ -1,13 +1,17 @@
 package com.entity;
 
+
+
+import com.dao.UserDao;
+
 public class User {
 	private int id;
 	private String password;
 	private String userName;
-	private int gentle;// 0 for male, 1 for female, null for undefined
 	private double account; // the dollar the user have
-	private Cart myCart;
+	//private Cart myCart;
 	private String location;
+	private UserDao ud; 
 
 	// TAG for Log
 	// private static final String TAG = "com.entity.User";
@@ -18,9 +22,10 @@ public class User {
 		id = 0;
 		password = "no_password";
 		userName = "no_username";
-		gentle = 2;
+	
 		account = 0;
-		myCart = new Cart();	
+		//myCart = new Cart();
+		ud=new UserDao();
 	}
 
 	public User(int id, String userName, String password, int gentle,
@@ -29,18 +34,27 @@ public class User {
 		this.id = id;
 		this.password = password;
 		this.userName = userName;
-		this.gentle = gentle;
 		this.account = account;
-		myCart = new Cart();
+		//myCart = new Cart();
+		ud=new UserDao();
 	}
-
+	
+	public boolean CreateNewUser(){
+		boolean isExcuted=false;
+		isExcuted=ud.addUser(this);
+		return isExcuted;	
+	}
+	
+	/*
 	public void addToCart(Item item, int num) {
 		myCart.addItem(item, num);
 	}
+	*/
 
 	/**
 	 * @return whether enough cash for checkout
 	 */
+	/*
 	public boolean checkout() {
 		if (account >= myCart.getTotalPrices()) {
 			account -= myCart.getTotalPrices();
@@ -52,12 +66,13 @@ public class User {
 		}
 
 	}
+	*/
 
 	public boolean buyNow(Item item, int num) {
 		double total = num * (item.getPrice());
 		if (account >= total) {
 			account -= total;
-			return true;
+			return ud.update(this);
 		} else {
 			return false;
 		}
@@ -70,6 +85,7 @@ public class User {
 
 	public void setId(int id) {
 		this.id = id;
+		ud.update(this);
 	}
 
 	public String getPassword() {
@@ -78,6 +94,7 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+		ud.update(this);
 	}
 
 	public String getUserName() {
@@ -86,15 +103,9 @@ public class User {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+		ud.update(this);
 	}
 
-	public int getGentle() {
-		return gentle;
-	}
-
-	public void setGentle(int gentle) {
-		this.gentle = gentle;
-	}
 
 	public double getAccount() {
 		return account;
@@ -102,8 +113,9 @@ public class User {
 
 	public void setAccount(double account) {
 		this.account = account;
+		ud.update(this);
 	}
-
+	/*
 	public Cart getMyCart() {
 		return myCart;
 	}
@@ -111,6 +123,7 @@ public class User {
 	public void setMyCart(Cart myCart) {
 		this.myCart = myCart;
 	}
+	*/
 	
 	public String getLocation() {
 		return location;
@@ -118,6 +131,7 @@ public class User {
 
 	public void setLocation(String location) {
 		this.location = location;
+		ud.update(this);
 	}
 
 	// *******test zone***********************

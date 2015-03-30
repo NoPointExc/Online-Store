@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-
-
-
 /**
  * Copyright (c) [2015] [@author sun jiayang a13813258259@163.com]
  * 
@@ -36,7 +33,7 @@ public class Cart {
 	private HashMap<Item, Integer> itemList;
 
 	// TAG for Log
-	// private static final String TAG = "com.entity.Cart";
+	private static final String TAG = "com.entity.Cart";
 
 	public Cart() {
 		this.id = 0;
@@ -54,8 +51,10 @@ public class Cart {
 		Iterator<Item> it = keys.iterator();
 		while (it.hasNext()) {
 			Item crIt = it.next();
-			int crNum = itemList.get(crIt);
-			sum =sum+ (crIt.getPrice()) * crNum;
+			// !!!!!!!!bug
+			double crNum = itemList.get(crIt);
+			sum = sum + (crIt.getPrice() * crNum);
+			System.out.println(TAG + "sun: " + sum);
 		}
 		this.setTotalPrices(sum);
 	}
@@ -148,21 +147,50 @@ public class Cart {
 	}
 
 	// ********** test zone*******************
-
 	/*
-	 * public static void main(String[] arg){ int i=0; //new Item(id, name, num,
-	 * license, price) Item item1=new Item(i++, "item1", 1, 20.3); Item
-	 * item2=new Item(i++, "item2", 3,  22.2); Item item3=new Item(i++,
-	 * "item3", 2,  12.3); Cart myCart=new Cart(); myCart.addItem(item1, 2);
-	 * myCart.addItem(item2, 1); myCart.addItem(item3, 5);
-	 * System.out.println("***add****"); System.out.println(myCart.toString());
-	 * myCart.deleteItem(item1, 2);
-	 * System.out.println("***delete 2 * item 1****");
-	 * System.out.println(myCart.toString());
-	 * System.out.println("***delete 1 * item 1****");
-	 * System.out.println(myCart.toString());
-	 * System.out.println("***remove * item 1****");
-	 * System.out.println(myCart.toString()); }
-	 */
+	public static void main(String[] arg) {
+		//int i = 0;
+		//Item item1 = new Item(i++, "item1", 1, 20.3);
+		//Item item2 = new Item(i++, "item2", 3, 22.2);
+		//Item item3 = new Item(i++, "item3", 2, 12.3);
+		Cart myCart = new Cart();
+		//myCart.addItem(item1, 2);
+		//myCart.addItem(item2, 1);
+		//myCart.addItem(item3, 5);
+		HashMap<Item, Integer> itemList = new HashMap<Item, Integer>();
+		itemList=myCart.getItemList();
+		System.out.println(itemList.toString());
+		Set<Item> keys = itemList.keySet();
+		Iterator<Item> it = keys.iterator();
+		// 设置商品id 和数量
+		String itemId = "";
+		String itemNum = "";
+		Item currentIt=null;
+		
+		while (it.hasNext()) {
+			System.out.println("***add****");
+			currentIt = it.next();
+			// 写入item id into sql
+			itemId = itemId + currentIt.getId() + ";";
+			// write item num into sql
+			itemNum = itemNum + itemList.get(currentIt) + ";";
+		}
+		System.out.println(itemId);
+		System.out.println(itemNum);
+		System.out.println(myCart.getTotalPrices());
+		
+		
+		
+		System.out.println("***add****");
+		
+		myCart.deleteItem(item1, 2);
+		System.out.println("***delete 2 * item 1****");
+		System.out.println(myCart.toString());
+		System.out.println("***delete 1 * item 1****");
+		System.out.println(myCart.toString());
+		System.out.println("***remove * item 1****");
+		System.out.println(myCart.toString());
+		
+	}  */
 
 }

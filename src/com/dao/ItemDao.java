@@ -10,14 +10,16 @@ import com.entity.Item;
 
 
 public class ItemDao {
-	private final static String TAG = "com.dao.ItemDao";
+	private final static String TAG = "com.dao.ItemDao  :";
 	/**
 	 * add a item into mySql
 	 * @param item
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean addItem(Item item) throws SQLException{
+	public boolean addItem(Item item){
+		
+		try{
 		Connection con = DbHelper.getConnection();
 		String sql="INSERT item VALUES(null, ?, ?, ?)";
 		PreparedStatement ps=con.prepareStatement(sql);
@@ -25,6 +27,10 @@ public class ItemDao {
 		ps.setInt(2, item.getNum());
 		ps.setDouble(3, item.getPrice());
 		return ps.execute();
+		}catch(SQLException e){	
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	
@@ -34,15 +40,15 @@ public class ItemDao {
 	 * @return
 	 * @throws SQLException
 	 */
-	public Item getItemById(int id) throws SQLException{
+	public Item getItemById(int id) {
+		try{
 		Connection con=DbHelper.getConnection();
 		Item item=new Item();
 		String sql="SELECT * FROM item WHERE id=?";
 		PreparedStatement ps=con.prepareStatement(sql);
 		ps.setInt(1, id);
 		ResultSet rs= ps.executeQuery();
-		//System.out.println(TAG+"rs:"+rs.toString());
-		 
+		//System.out.println(TAG+"rs:"+rs.toString());	 
 		//System.out.println(TAG+"name:"+rs.getString("name"));
 		while (rs.next()){
 		item.setId(rs.getInt("id"));
@@ -51,40 +57,28 @@ public class ItemDao {
 		item.setPrice(rs.getDouble("price"));
 		}
 		return item;
+		}catch(SQLException e){
+		e.printStackTrace();
+		return null;
+		}
 	}
 
-	/**
-	 * update num 
-	 * @param id
-	 * @param num
-	 * @return
-	 * @throws SQLException
-	 */
-	public boolean updateItemNumById(int id, int num) throws SQLException{
-		Connection con=DbHelper.getConnection();		
-		String sql="UPDATE item SET num= ? WHERE id = ?";
-		PreparedStatement ps=con.prepareStatement(sql);
-		if(num<0) num=0;
-		ps.setInt(1, num);
-		ps.setInt(2, id);
-		return ps.execute();	
-	}
+
 	
-	
-	/**
-	 * update price 
-	 * @param id
-	 * @param price
-	 * @return
-	 * @throws SQLException
-	 */
-	public boolean updateItemPriceById(int id, double price) throws SQLException{
-		Connection con=DbHelper.getConnection();		
-		String sql="UPDATE item SET price= ? WHERE id = ?";
-		PreparedStatement ps=con.prepareStatement(sql);
-		ps.setDouble(1, price);
-		ps.setInt(2, id);
-		return ps.execute();	
+	public boolean update(Item it){
+		try{
+			Connection con=DbHelper.getConnection();		
+			String sql="UPDATE item SET name =?, num=?, price= ? WHERE id = ?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1, it.getName());
+			ps.setInt(2, it.getNum());
+			ps.setDouble(3, it.getPrice());
+			ps.setInt(4, it.getId());
+			return ps.execute();
+			}catch(SQLException e){
+				e.printStackTrace();
+				return false;
+			}	
 	}
 	
 	//*** test zone****

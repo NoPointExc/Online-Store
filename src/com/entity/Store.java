@@ -1,6 +1,9 @@
 package com.entity;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import com.dao.StoreDao;
 
 public class Store {
 	private int id;
@@ -8,57 +11,63 @@ public class Store {
 	private ArrayList<Item> items; // item has "num" attribute
 	//the owner of the shop
 	private int sellerId;
-	private double sales;
+	private StoreDao sd;
 	
-
-
+	private static final String TAG="com.entity.Store:  ";
 
 
 	public Store() {
 		id = 0;
-		name = "no_name";
+		name = "";
 		items = new ArrayList<Item>();
 		sellerId=0;
-
+		sd=new StoreDao();
 	}
 
 
 
-	public Store(int id, String name, int sellerId) {
+	public Store(int id, String name,ArrayList<Item> items, int sellerId) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.sellerId=sellerId;
-		items = new ArrayList<Item>();
-
+		this.items = items;
+		sd=new StoreDao();
+	}
+	
+	public void createNewStore(){
+		sd.addStore(this);
 	}
 
+	/**
+	 * @param item
+	 * @return 
+	 * true:item has been add, false: item=null or items has already in the list
+	 */
 	public boolean addItem(Item item) {
-		int pos = items.indexOf(item);
-		if (pos != -1) {
-			// item has already in the list
-			Item it = items.get(pos);
-			it.setNum(it.getNum() + item.getNum());
+		if(item==null) return false;
+		if(hasItem(item)){
+			return false;
+		}else{
+			items.add(item);
+			sd.update(this);
 			return true;
 		}
-		// item not in the list
-		items.add(item);
-		return true;
+		
 	}
 	
-	
+	private boolean hasItem(Item item){
+		if(items.isEmpty()) return false;
+		Iterator<Item> mIter=items.iterator();
+		while(mIter.hasNext()){
+			if(mIter.next().getId()==item.getId()) return true;
+		}
+		return false;
+		
+	}
 
 	// *******setter and getter****
 
-	public double getSales() {
-		return sales;
-	}
-
-
-
-	public void setSales(double sales) {
-		this.sales = sales;
-	}
 
 	
 	public int getSellerId() {
@@ -67,6 +76,11 @@ public class Store {
 
 	public void setSellerId(int sellerId) {
 		this.sellerId = sellerId;
+		if(sd.update(this)){
+			System.out.println(TAG+"salses setted and DB updated");
+		}else{
+			System.out.println(TAG+"DB updated Error");
+		}
 	}
 	
 	
@@ -78,6 +92,11 @@ public class Store {
 
 	public void setId(int id) {
 		this.id = id;
+		if(sd.update(this)){
+			System.out.println(TAG+"salses setted and DB updated");
+		}else{
+			System.out.println(TAG+"DB updated Error");
+		}
 	}
 
 	public String getName() {
@@ -86,6 +105,11 @@ public class Store {
 
 	public void setName(String name) {
 		this.name = name;
+		if(sd.update(this)){
+			System.out.println(TAG+"salses setted and DB updated");
+		}else{
+			System.out.println(TAG+"DB updated Error");
+		}
 	}
 
 	public ArrayList<Item> getItems() {
@@ -94,6 +118,11 @@ public class Store {
 
 	public void setItems(ArrayList<Item> items) {
 		this.items = items;
+		if(sd.update(this)){
+			System.out.println(TAG+"salses setted and DB updated");
+		}else{
+			System.out.println(TAG+"DB updated Error");
+		}
 	}
 
 	// *****test zone***********
