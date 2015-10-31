@@ -2,6 +2,7 @@ package com.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.OrderDao;
 import com.dao.UserDao;
+import com.entity.Order;
 import com.entity.User;
 
 /**
@@ -74,6 +77,10 @@ public class RegServlet extends HttpServlet {
 		//save in DB
 		user.CreateNewUser();
 		request.getSession().setAttribute("user", user);
+		//save orders into session
+		OrderDao orderDao=new OrderDao();
+		ArrayList<Order> orders=orderDao.getOrdersByUserId(user.getId());
+		request.getSession().setAttribute("orders", orders);
 		response.sendRedirect(request.getContextPath()
 				+ "/index.jsp");
 	}

@@ -13,8 +13,14 @@ import org.apache.jasper.tagplugins.jstl.core.Out;
 
 
 
+
+
+
+import com.dao.OrderDao;
 import com.entity.Cart;
 import com.entity.Item;
+import com.entity.Order;
+import com.entity.Store;
 import com.entity.User;
 
 
@@ -24,7 +30,7 @@ import com.entity.User;
 @WebServlet("/CartServlet")
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String TAG = "com.servlet.CartServlet";
+	private static final String TAG = "com.servlet.CartServlet:  ";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -51,7 +57,14 @@ public class CartServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 			Item currItem=(Item) request.getSession().getAttribute("item");
 			User currUser=(User) request.getSession().getAttribute("user");
+			Store currStore=(Store) request.getSession().getAttribute("store");
 			double price=currItem.getPrice();
+			//System.out.println(TAG+currUser==null);
+			if(currUser==null) {
+				response.sendRedirect(request.getContextPath()+"/sign_in.jsp");
+				return;
+				}
+			//ensure has log in.
 			double account=currUser.getAccount();
 			int left=currItem.getNum();
 			String amountString=request.getParameter("amount");
@@ -63,6 +76,10 @@ public class CartServlet extends HttpServlet {
 				//deal success
 				currUser.setAccount(account-price);
 				currItem.setNum(left-amount);
+				//make purchase record
+				Order order=new Order(0, currUser.getId(), currItem.getId(), currStore.getId(), amount);
+				OrderDao orderDao=new OrderDao();
+				orderDao.addOrder(order);
 				response.sendRedirect(request.getContextPath()+"/success.jsp");
 			}else{
 				//no enough money

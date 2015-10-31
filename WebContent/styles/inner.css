@@ -1,0 +1,358 @@
+/* 
+
+Lastore - CSS File
+
+USE THIS STYLE SHEET FOR INNER PAGE
+
+*/
+
+
+
+/* Page Navi*/
+.wp-pagenavi {padding:20px 0 0; font-size:12px; display:block; margin-bottom:20px;}
+.wp-pagenavi .pages{padding-right:10px;}
+.wp-pagenavi a, .wp-pagenavi a:visited{padding:4px 7px; margin:0 4px;}
+.wp-pagenavi .current{padding:4px 7px; margin:0 4px;}
+
+
+
+/* BLOG */
+.post{margin-bottom:30px; padding-bottom:5px; }
+.post.last{ margin-bottom:0px; border:0px;}
+.single .post{ margin-bottom:20px;}
+.single .postimg {
+    float: left;
+    margin-right: 15px;
+    width: 41.667%;
+}
+.posttitle, .posttitle a{font-size:24px; font-weight:normal;}
+.posttitle a:hover{text-decoration:none;}
+
+.postimg{}
+
+.entry-content { }
+.entry-content .button{ display:inline-block;}
+
+.entry-utility{padding:3px 0 5px 0; margin-bottom:15px; clear:both; font-size:11px; text-transform:uppercase; display:inline-block; }
+
+.author{ padding:10px 0 30px;  margin-bottom:30px;}
+.author h3{ font-weight:normal;}
+
+.related-post{margin-bottom:20px; float:left}
+
+#comment h3{ margin-bottom:20px;}
+.commentlist{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+.commentlist ol{
+	list-style-type:none;
+	padding:30px 0 0 80px;
+	margin:0;
+}
+
+.commentlist li{
+	position:relative;
+	padding:0 0 30px 0;
+}
+.commentlist li li{
+	position:relative;
+	padding:0;
+}
+
+.avatar-img{
+	position:absolute;
+	top:0;
+	left:0;
+	background:url(../images/shadow-mini.gif) no-repeat center bottom;
+	padding-bottom:6px;
+}
+.avatar{display:block}
+.fn{font-size:11px; text-transform:uppercase;}
+.tdate{padding-left:20px;}
+.dr{ display: inline-block;}
+.tdate, .reply{ font-size:11px;}
+.reply a, .reply a:visited{}
+.reply a:hover{text-decoration:underline;}
+.fn a, .fn a:visited{}
+
+.comment-body{margin:0 0 0 80px; padding:0px 0px 18px;}
+.comment-body p{ margin-bottom:5px; margin-top:10px;}
+.comment-body .more{ padding:0px 0px;}
+#commentform {margin-bottom:20px}
+#commentform label{display:block}
+#commentform .text-input{
+	margin-bottom:8px;
+	padding:8px 5px;
+	vertical-align:middle;
+}
+#commentform .textarea{
+	margin-bottom:20px;
+	padding:8px 5px;
+	vertical-align:top;
+}
+
+
+/* PRODUCTS */
+#product-container .columns{ margin-bottom:50px;}
+.sortPagiBar{ margin:20px 0 0;  clear:both;}
+.sortPagiBar form{ display:inline-block; margin-right:20px;}
+.productsShowForm{ width:90px;}
+.productsShowForm select{ width:50%;}
+.sortPagiBar .button{ padding:7px 17px;}
+
+#product-list-container{ margin:0 10px 30px;}
+#product-list-container .product-img{ text-align:center;}
+#product-list-container .product-list-wrapper{ margin:20px;}
+#product-list-container .product-list-wrapper .status{ margin-bottom:10px;}
+#product-list-container .product-list-wrapper h3{ font-size:13px; margin-bottom:12px;}
+#product-list-container .but-wrapper{ display:block;}
+#product-list-container .price{ display:block; float:none; font-size:18px; padding:15px 0;}
+#product-list-container .compare{ margin-bottom:10px; line-height:normal;}
+
+#product-list-container .compare label{ vertical-align:top;}
+#product-list-container .price-cart-wrapper{ padding:0 0 0 18px; margin-left:-10px; min-height:160px;}
+#product-list-container .but-wrapper .more-link, #product-list-container .but-wrapper .cart{ 
+	padding:6px 15px 6px 36px; 
+	float:none; 
+	display:block; 
+	font-size:13px;
+	width:70px;
+}
+#product-list-container .but-wrapper .cart{ margin-bottom:1px; }
+
+/* Product Detail */
+
+#product-detail .product_attributes{ margin-bottom:15px;}
+#product-detail .cart{
+	padding:6px 15px 6px 36px; 
+	float:none; 
+	display:block; 
+	font-size:13px;
+	width:70px;
+	margin-bottom:15px;	
+}
+#product-detail .price{ font-size:20px; margin-bottom:15px;}
+#product-detail .price span{ font-size:12px;}
+
+.attribute_list select, .qty_list select{ width:100%;}
+.attribute_list, .qty_list{ display:inline-block; width:40%;}
+.attribute_list{ margin-left:10px;}
+.qty_list{ margin-left:20px;}
+
+.image-block{ border:1px solid #eee; background:#fff; padding:10px;}
+
+#usefull_link_block {
+    list-style-type: none;
+    margin: 8px 0 0;
+}
+#usefull_link_block li {
+    padding: 2px 0 0 20px;
+}
+
+
+/* Register */
+#register .row{ margin-bottom:50px;}
+#register h3{ text-transform:uppercase; font-size:13px;}
+#register .columns{ margin-bottom:0px;}
+#register label{ display:block; margin-bottom:5px; }
+#register input[type="text"], #register select { width:96%; padding:10px 5px;}
+#register #billing_company{ width:98%;}
+#register .country_to_state{ width:100%;}
+#register textarea{ width:97%;}
+
+#register .check-account label{ display:inline-block; vertical-align:top}
+
+#shiptobilling{ float:right; position:relative; margin-right:15px;}
+#shiptobilling label{ display:inline-block}
+
+/* Chart */
+.cart_total td{ text-align:right;}
+.cart_unit{ width:18%;}
+.cart_item td{ border-bottom:0px; padding-top:10px; padding-bottom:10px;}
+#order-detail-content thead th{ border-right:0px; text-transform:uppercase}
+#order-detail-content tr td{ border-width:0 0 1px 0; vertical-align:middle;}
+#order-detail-content table{ border-width:1px 0 1px 0}
+
+
+#cart_voucher{ padding:0px;}
+#voucher { margin-top:30px; padding:25px 20px 10px; }
+#voucher h3, #cart_voucher p, #cart_voucher .button{ display:inline-block; margin-bottom:0px;}
+#voucher h3{ width:38%; text-transform:uppercase; text-align:left;}
+#cart_voucher p{width:60%; text-align:right}
+#voucher .discount_name{ width:68%; }
+#cart_voucher .button{ font-size:12px; padding:6px 9px; margin-left:-3px}
+
+#payment { margin-top:38px;}
+#payment ul.payment_methods {
+    list-style: none outside none;
+    margin: 0;
+    overflow: hidden;
+    padding: 20px;
+    text-align: left;
+}
+#payment ul.payment_methods li {
+    font-weight: normal;
+    line-height: 2em;
+    margin: 0;
+    text-align: left;
+}
+#payment ul.payment_methods li input {
+    margin: 0 1em 0 0;     
+	display: inline;
+    float: none;
+    padding-left: 5px;
+}
+#payment ul.payment_methods li label{
+	display:inline; float:none;
+	font-size:13px;
+	font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+}
+#payment ul.payment_methods li .payment_box{ padding-left:30px;}
+#payment ul.payment_methods li img {
+    margin: -2px 0 0 0.5em;
+    position: relative;
+    vertical-align: middle;
+}
+#payment div.form-row { padding: 20px;	text-align:right;}
+
+/* PORTFOLIO */
+
+/*======= Portfolio Navigation =======*/
+
+#filter{list-style-type:none; padding:0px 0px;	margin:0px; float:right; margin-top:-39px;}
+#filter li{list-style-type:none; display:inline-block; margin-bottom:10px; text-transform:uppercase; padding:0; line-height:normal}
+#filter li a, #filter li a:visited{ padding:0px 10px; }
+#filter li.current{ }
+/*======= End Portfolio Navigation =======*/
+
+.ts-display-pf-img{position:relative;}
+.ts-display-clear{clear:both; height:1px !important; line-height:1px !important; float:none!important}
+.ts-display-pf-text{padding:15px 18px 16px 18px; text-align:center}
+.ts-display-pf-text h2{	font-size:12px; margin-bottom:0px;}
+
+.ts-display-pf-img a.image img{ display:block;}
+.ts-display-pf-img{
+	overflow:hidden;
+	display:block;	
+	position:relative;
+}
+.ts-display-pf-img a.image{
+	display:block;
+	position:relative;
+	overflow:hidden;
+}
+.ts-display-pf-img a .rollover{
+	background:url(../images/hover-zoom.png);
+	background-color:#000;
+	background-repeat:no-repeat;
+	background-position:center;
+	display:block;
+    position:absolute;
+	z-index:10;
+	display:none;
+	cursor:pointer;
+	width:100%;
+	height:100%;
+}
+.ts-display-pf-img a .rollover.gotolink{
+	background:url(../images/hover-link.png);
+	background-color:#000;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.ts-display-pf-img a .rollover.gotopost{
+	background:url(../images/hover-doc.png);
+	background-color:#000;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+
+/* ---------------------------- */
+/*       Isotope plugin
+/* ---------------------------- */
+
+.isotope-item {
+	z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+	pointer-events: none;
+	z-index: 1;
+}
+
+.isotope,
+.isotope .isotope-item {
+	-webkit-transition-duration: 0.8s;
+	-moz-transition-duration: 0.8s;
+	-o-transition-duration: 0.8s;
+	transition-duration: 0.8s;
+}
+
+.isotope {
+	-webkit-transition-property: height, width;
+	-moz-transition-property: height, width;
+	-o-transition-property: height, width;
+	transition-property: height, width;
+}
+
+.isotope .isotope-item {
+	-webkit-transition-property: -webkit-transform, opacity;
+	-moz-transition-property: -moz-transform, opacity;
+	-o-transition-property: top, left, opacity;
+	transition-property: transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+	-webkit-transition-duration: 0s;
+	-moz-transition-duration: 0s;
+	-o-transition-duration: 0s;
+	transition-duration: 0s;
+}
+
+/* End: Recommended Isotope styles */
+
+/* Login */
+
+#login input[type="text"]{width: 95%;}
+
+#login-process{ width:68%; margin:0 auto 30px;}
+#login-process span{width:19%; padding-bottom:10px; float:left; text-align:center; background:url(../images/step_standard.gif) center bottom no-repeat; position:relative; margin-bottom:-5px;}
+#login-process span.active, #login-process span.old{background:url(../images/step_current.gif) center bottom no-repeat; }
+#login-process span.active{ color:#ff5555;} 
+#login-process span.first{width:5%; text-align:left; background:url(../images/step_start.gif) left bottom no-repeat;}
+#login-process span.last{background:url(../images/step_end.gif) left bottom no-repeat;}
+
+
+/* CONTACT */
+form{margin:0; padding:0;}
+fieldset{border:0px;}
+#contactform{margin:0 auto; position:relative; }
+#contactform .left{float:left; width:50%;}
+#contactform .right{float:right; width:50%;}
+#contactform label{display:block; width:100%; float:left; padding-bottom:5px;}
+span.error{color:red;text-align:left; font-size:11px; padding-bottom:5px; display:block;}
+#contactform input.text-input{
+	margin-bottom:15px;
+	margin-right:10px;
+	vertical-align:middle;
+	width:90%;
+	padding:10px;
+}
+#contactform textarea{ width:95%; overflow:hidden;} 
+#message{ margin-left:0px; }
+#message h2	{}
+#message p{margin:6px 0px; }
+
+#contactform .button{
+	cursor:pointer;
+	margin-top:20px;
+	float:left;
+	padding: 5px 12px 8px;
+ }

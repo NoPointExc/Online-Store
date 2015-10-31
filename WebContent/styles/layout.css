@@ -1,0 +1,266 @@
+
+/* #Theme Frame 
+================================================== */
+
+.container{ margin: 0px auto; padding: 0px 20px; max-width: 960px;}
+
+.row { max-width: 100%; margin: 0 auto; }
+.row .row { width: auto; max-width: none; min-width: 0; margin: 0 -10px; }
+.row .column, .row .columns{ -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.column, .columns { float: left; min-height: 1px; padding: 0 10px; position: relative; margin-bottom: 20px;}
+.column.wrapper, .columns.wrapper{ padding: 0px; }
+
+/* Base Grid */	
+
+.row .one 		{ width: 8.333%; }
+.row .two 		{ width: 16.667%; }
+.row .three 	{ width: 25%; }
+.row .four 		{ width: 33.333%; }
+.row .five 		{ width: 41.667%; }
+.row .six 		{ width: 50%; }
+.row .seven 	{ width: 58.333%; }
+.row .eight 	{ width: 66.667%; }
+.row .nine 		{ width: 75%; }
+.row .ten 		{ width: 83.333%; }
+.row .eleven 	{ width: 91.667%; }
+.row .twelve 	{ width: 100%; }
+
+/* Column Layouts */
+
+.row .one_half				{ width: 50%; }
+.row .one_third				{ width: 33.333%;}
+.row .one_fourth			{ width: 25%; }
+.row .one_fifth				{ width: 20%;}
+.row .one_sixth 			{ width: 16.667%;}
+
+.row .two_third				{ width: 66.667%;}
+.row .two_fourth 			{ width: 50%;}
+.row .two_fifth 			{ width: 40%;}
+.row .two_sixth 			{ width: 33.333%;}
+
+
+.row .three_fourth			{ width: 75%;}
+.row .three_fifth 			{ width: 60%;}
+.row .three_sixth 			{ width: 50%;}
+
+.row .four_fifth 			{ width: 80%;}
+.row .four_sixth 			{ width: 66.667%;}
+
+.row .content 	{ width: 100%; }
+
+img{ max-width: 100%; height: auto; }
+img { -ms-interpolation-mode: bicubic; }
+object, embed { max-width: 100%; }
+
+
+/* #Clearing
+================================================== */
+
+    /* Self Clearing Goodness */
+    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns,
+    or wrap each row of columns in a <div class="row"> */
+    .clearfix:before,
+    .clearfix:after,
+    .row:before,
+    .row:after {
+      content: '\0020';
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0; }
+    .row:after,
+    .clearfix:after {
+      clear: both; }
+    .row,
+    .clearfix {
+      zoom: 1; }
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear, .clr {
+      clear: both;
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+
+/* #Media Queries
+================================================== */
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (min-width: 959px) {
+	
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	#logo-wrapper #searchform #s{ width:130px; }
+	
+	/*============================================== SLIDER SECTION ==============================================*/
+	#layerslider.slideritems img.ls-s2{
+		left:500px!important;
+		top:43px!important;
+	}
+
+	#layerslider.slideritems div.slidedesc{
+		width:430px!important;
+	}
+	
+	#layerslider.slideritems .ls-s3{
+		left:59px!important;
+		top:75px!important;
+	}
+	
+	#layerslider.slideritems .ls-s4{
+		left:59px!important;
+		top:155px!important;
+	}
+	
+	.cart_ref, .none2{ display:none;}
+	#voucher .discount_name{ width:58%; }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none;
+		width: 100%; min-width: 0; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; }
+		
+	.container{ margin: 0px auto; max-width: 420px; }
+	
+	.row { width: auto; min-width: 0; margin-left: 0; margin-right: 0; }
+
+	.row .column, .row .columns { width: 100%; float: none; }
+
+	.column:last-child, .columns:last-child { float: none; }
+	[class*="column"] + [class*="column"]:last-child { float: none; }
+
+	.column:before, .columns:before, .column:after, .columns:after { content: ""; display: table; }
+	.column:after, .columns:after { clear: both; }
+	
+	#bodychild{ max-width: 460px; }
+	/*============================================== HEADER SECTION ==============================================*/
+	#logo{text-align:center; float:none!important; display:block}
+	#logo img{ float:none!important;}
+	#logo .desc{ float:none!important; display:block; border:0px!important; margin:15px 0 0; padding:0px;}
+	
+	#topmenu{margin:10px 0 20px;}
+	#topright{text-align:center; float:none!important; display:block; margin-bottom:10px;}
+	
+	#searchform{ margin:20px auto 30px;  float:none!important;}
+	#logo-wrapper #searchform #s{ width:150px;}
+	
+	#navigation{text-align:center; clear:both; height:auto; padding:10px 0;}
+	#nav-wrap{ background:none!important;}
+	.sf-menu a{background:transparent!important; border:0!important;}
+	.sf-menu > li{border:0 !important; display:none;}
+	nav{margin:0; float:none; }
+	.js .tinynav { display: block; display: inline-block; text-align:left ; margin:0 0 0 0; width:100%}/* mobile dropdown */
+    .js #topnav { display: none }
+
+	
+	
+	/*============================================== SLIDER SECTION ==============================================*/
+
+	#layerslider.slideritems img.ls-s2{
+		left:230px!important;
+		top:120px!important;
+		width:48%!important;
+	}
+	#layerslider.slideritems h3{
+		font-size:16px!important;
+		padding:8px 13px!important;
+	}
+	#layerslider.slideritems div.slidedesc{
+		font-size:12px!important;
+		width:200px!important;
+	}
+
+	#layerslider.slideritems .ls-s3{
+		left:35px!important;
+		top:75px!important;
+	}
+	#layerslider.slideritems .ls-s4{
+		left:35px!important;
+		top:130px!important;
+	}
+	
+	/*============================================== CONTENT SECTION ==============================================*/
+	#content.positionright, #content.positionleft{background:transparent;}
+	.padcontent{padding-right:0;}
+	#content.positionright .padcontent{padding-left:0; padding-right:0}
+
+	#filter{ margin:0 auto 20px; float:none;}
+	
+	.alert{ width:75%;}
+	
+	.sortPagiBar form { margin-right:10px;}
+	#product-list-container .product-list-wrapper .price-cart-wrapper{ padding:0px; margin:0px; border:0px!important;}
+	
+	
+	.cart_ref, .cart_avail, .cart_description, .none1, .none2{ display:none;}
+	#voucher h3, #cart_voucher p{ display:block;}
+	#voucher h3{ margin-bottom:20px;}
+	#cart_voucher p{ width:100%; text-align:left}
+	#voucher .discount_name{ width:65%; }
+	
+	.es-carousel{ width:75%;}
+	
+	#login-process{ width:100%}
+	
+	.single .postimg { float:none; width:100%; margin-right:0px;}
+
+	.wp-pagenavi{margin-bottom:30px;}
+
+	/*============================================== SIDEBAR ==============================================*/
+	.sidebar{ margin-left:0px}
+
+
+	/*============================================== FOOTER ==============================================*/
+	#outercopyright{ margin-bottom:0px; text-align:center;}
+	#outercopyright .sn { float:none!important; padding-bottom:15px; }
+	
+	
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+		
+	#outercopyright .sn { float:none!important; }
+}
+		
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+	
+	#logo-wrapper #searchform #s{ width:140px; margin-bottom:5px;}
+	#shopping-cart-wrapper{ margin-bottom:5px;}
+
+	
+	.header-wrapper h2{ display:block;}
+	
+	#layerslider.slideritems img.ls-s2{ display:none!important;}
+	#layerslider.slideritems .ls-s3{
+		left:45px!important;
+	}
+	#layerslider.slideritems .ls-s4{
+		left:45px!important;
+	}
+	
+	.padcontent{padding:0px!important;}
+	
+	blockquote{ margin:0px 0px 20px!important;}
+	
+	.commentlist ol{ padding-left:35px;}
+	
+	
+	
+	.sortPagiBar{ margin-bottom:40px;}
+	.cart_ref, .cart_avail, .cart_description, .cart_unit, .none1, .none2, .none3{ display:none;}
+	#voucher .discount_name{ width:46%; }
+}

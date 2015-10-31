@@ -1,0 +1,891 @@
+/* 
+
+Lastore - CSS File
+
+*/
+
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block; }
+body {
+	line-height: 1; }
+ol, ul {
+	list-style: none; }
+blockquote, q {
+	quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none; }
+table {
+	border-collapse: collapse;
+	border-spacing: 0; }
+
+/*============================================ GLOBAL  =================================================*/
+body {
+	font-family: 'Ubuntu', sans-serif, arial;
+	font-size:12px;
+	margin:0 auto;
+	padding:0;
+	line-height:20px;
+}
+* {
+	margin:0;
+	padding:0;
+}
+*:focus {
+	outline:none; /* removes ugly dotted border but may make template more unsuable, up to you
+					 if you want to keep it! */
+}
+form{margin:0; padding:0;}
+hr {
+	border-width:0;
+	height:1px;
+	line-height:0;
+	margin:30px 0px 30px 0px;
+	page-break-after:always;
+	text-align:center;
+	width:100%;
+	clear:both;
+}
+em{ font-style:italic;}
+/*** END OF GLOBAL  ***/
+
+
+/*============================================ DEFAULT ELEMENT STYLES  =================================================*/
+/* heading */
+h1, h2 {margin-bottom:20px; font-weight:normal; line-height:normal;}
+h3, h4, h5{margin-bottom:20px; font-weight:normal; line-height:normal;}
+h1	{font-size:20px;}
+h2	{font-size:18px;}
+h3	{font-size:16px;}
+h4	{font-size:14px;}
+h5	{font-size:12px;}
+h6	{font-size:10px;}
+
+.button, .button:visited, input[type="submit"], button{font-family: 'Ubuntu', sans-serif, arial;}
+.pagetitle{ margin-bottom:20px;}
+
+.title{ padding:8px 0 7px 8px; text-transform:uppercase;}
+.titleRegular{font-weight:400}
+.titleBold{font-weight:700}
+.titleLight{font-weight:300}
+.titleUppercase{text-transform:uppercase}
+.titleNormal{text-transform:none}
+.italic{font-style:italic}
+.textBoldUppercase{font-weight:700; text-transform:uppercase;}
+
+.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+
+
+/* links */
+a, a:visited {text-decoration:none;}
+a:hover{text-decoration:none;}
+a img{border:none}
+
+
+/* float align */
+.alignleft,
+img.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 15px;
+	margin-top: 3px;
+}
+.alignright,
+img.alignright {
+	display: inline;
+	float: right;
+	margin-left: 15px;
+	margin-top: 5px;
+}
+.aligncenter,
+img.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignnone,
+img.alignnone {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin:0px;
+}
+
+
+img.alignleft, 
+img.alignright, 
+img.aligncenter
+{
+	margin-bottom: 10px;
+}
+
+/* lists, blockquotes and paragraphs */
+p, ul, ol, blockquote {
+	margin-bottom:20px;
+}
+ul {
+	list-style: disc;
+	margin: 0 0 18px 1.5em;
+}
+ul li{ padding-bottom:10px;}
+ol {
+	list-style: decimal;
+	margin: 0 0 18px 2.2em;
+}
+ol ol {
+	list-style: upper-alpha;
+}
+ol ol ol {
+	list-style: lower-roman;
+}
+ol ol ol ol {
+	list-style: lower-alpha;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-bottom: 0;
+}
+	
+blockquote {
+    background-image: url("../images/quote.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    clear: both;
+    margin: 0 20px 20px 40px;
+    padding:0 0 0 35px;
+	font-size:20px;
+	font-style:italic;
+	line-height:30px
+}
+
+	
+blockquote.left, blockquote.right  {
+	float:right;
+	margin:0 0 0 20px;
+	width:65%;
+	}
+	
+blockquote.left{
+	float:left;
+	margin-left:0px;
+	margin-right:20px;}
+
+
+/* code */
+code {
+	font-family:Verdana, Arial;
+	letter-spacing:1px;
+	margin:25px 0 25px 0px;
+	display:block;
+	font-size:0.9em;
+	padding:15px 10px;
+}
+
+/*** END OF DEFAULT ELEMENT STYLES ***/
+
+
+/*============================================ CONTAINER  =================================================*/
+#bodychild{
+	max-width:1000px;
+	margin:0 auto;
+	padding:0;
+}
+
+
+
+/*** END CONTAINER ***/
+
+/*** HEADER ***/
+
+/* Top */
+#top{ padding:5px 0px 7px;}
+#topmenu{ margin-bottom:0px;}
+#topmenu ul{ margin:0px; padding:0px; list-style-type:none;}
+#topmenu li{ display:inline; margin-right:8px;}
+
+#topright{ margin:0; text-align:right;}
+.language,.currency{ display:inline-block;}
+.language { margin-right:10px;}
+
+
+/* Logo */
+#logo-wrapper{ padding:33px 0px;}
+
+#logo{height:auto; padding-top:0px;}
+#logo img{ float:left;}
+#logo h1{margin:0; font-size:28px; line-height:28px;}
+#logo .desc{ float:left; padding-left:10px; margin:15px 0 0 20px; line-height:normal;}
+
+#logo-wrapper .right{float:right; margin:0; text-align:right;}
+
+/* Search */
+#logo-wrapper #searchform {position: relative;  display:inline-block; margin:0px 0 3px;}
+#logo-wrapper #searchform #s {  padding: 8px 0px 8px 9px !important; vertical-align:top; width:200px; margin-bottom:0px;}
+#logo-wrapper .searchbutton {
+    height:30px;
+    width: 27px;
+	margin-left:-3px;
+}
+
+/**/
+
+#shopping-cart-wrapper {
+    float: right;
+    list-style-type: none;
+	margin-left:20px;
+}
+#shopping_cart {
+    position: relative;
+	margin-bottom:0px;
+}
+#shopping_cart a#shop-bag {
+    background: url("../images/arrow-down.gif") no-repeat 120px center #FFFFFF;
+    border: 1px solid #E3E3E3;
+    color: #BBBBBB;
+    display: inline-block;
+    height: 21px;
+    margin-right: 27px;
+    padding: 4px 27px 3px 9px;
+    width: 100px;
+	text-align:left;
+}
+
+#shopping_cart a.btncart {
+    background: url("../images/cart.png") no-repeat scroll center center #666666;
+    border: 0 none !important;
+    border-radius: 0 0 0 0;
+    display: block;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 27px;
+}
+
+#shop-bag{ }
+.shop-box {
+	width: 163px;
+	clear: both;
+	position:absolute;
+	left:0;
+	top:30px;
+	z-index:250;
+	margin:0px;
+	padding:5px 0 0 0;
+	list-style-type:none;
+}
+.shop-box li{padding:5px 10px 5px; font-size:12px; clear:both;}
+.shop-box li:last-child{ padding:13px 10px;}
+.shop-box h2{ font-size:12px; font-weight:bold; margin-bottom:0px; float:left; margin-top:4px;}
+.shop-box .price{ float:right}
+.shop-box .btn-wrapper { text-align:center; font-size:11px; text-transform:uppercase; }
+.shop-box li.btn-wrapper a.cart{ float:left; padding:3px 8px;}
+.shop-box li.btn-wrapper a.checkout{float:right; padding:3px 8px;}
+
+/* TOP MENU */
+#navigation{position:relative; z-index:200; margin:0 0 20px 0; width:100%;}
+#nav-wrap{ margin-bottom:0px;}
+
+/* Nav Menu */
+#sf-nav{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	overflow:visible;
+	position:relative;
+	font-size:12px;
+}
+.sf-menu > li{ margin-right:20px!important;}
+.sf-menu a {
+	text-decoration:none;
+	display:		block;
+	position:		relative;
+	padding: 		0px 0px;
+	margin: 15px 0px;
+	text-transform:uppercase;
+	font-weight:300;
+}
+.sf-menu li:hover, .sf-menu li.current{ margin-top:-1px;}
+.sf-menu a:hover, .sf-menu li.current > a{ }
+
+
+/* Drop down menu */
+.sf-menu ul a:hover {}
+.sf-menu li li {
+	text-align:left;
+	line-height:20px;
+	margin:0;
+	padding:0px;
+	width:auto;
+	text-align:left;
+}
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sf-menu {
+	line-height:100%;
+	position:absolute;
+	right:0;
+	bottom:0;
+	float:left;
+}
+.sf-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			12em; /* left offset of submenus need to match (see below) */
+}
+
+.sf-menu ul li {
+	width:			100%;
+}
+.sf-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+.sf-menu li {
+	float:			left;
+	position:		relative;
+	margin:0;
+}
+
+.sf-menu li li{margin:0px 0px!important;}
+
+
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left:			-20px;
+	top:			3.5em; /* match top ul list item height */
+	z-index:		99;
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			12em; /* match ul width */
+	top:			-1px;
+	margin-left:	0px;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			12em; /* match ul width */
+	top:			-1px;
+}
+.sf-menu ul li a{
+	padding:8px 20px 7px 20px!important;
+	margin:0px;
+	font-size:11px;
+}
+
+.sf-menu ul li a:hover{}
+.sf-menu li ul {
+	
+}
+.sf-menu a.sf-with-ul {
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+.sf-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			10px;
+	top:			1.05em; /* IE6 only */
+	width:			10px;
+	height:			10px;
+	text-indent: 	-999em;
+	overflow:		hidden;
+}
+
+
+	
+/* dropdown mobile */
+.tinynav { display: none }
+
+.headline{ text-align:center; margin:0px 0 0 0; padding:0px 0 10px;}
+.headline .columns{ margin-bottom:0px;}
+.headline h1{ font-weight:300; margin-bottom:0px; font-size:20px;}
+
+
+/*============================================ SLIDER   =================================================*/
+#slidercontainer{}
+#slider{position:relative; margin:20px 0 30px 0;}
+#slider img{ display:block;}
+
+
+/*============================================ CONTENT  =================================================*/
+
+#maincontent{ }
+
+.row .positionright{float:right;}
+.row .positionleft{ float:left;}
+.padcontent{padding-right:30px;}
+.six.columns .padcontent{padding:0px 20px;}
+.positionright .padcontent{padding-right:0px; padding-left:20px;}
+
+.header-wrapper{ margin-bottom:14px; clear:both;}
+.header-wrapper span{ 
+    border-bottom: 1px solid #EEEEEE;
+    display: block;
+    height: 8px;
+    margin-left: auto;
+    width: 100%;
+}
+.header-wrapper h2{ 
+   	background-color: #FFFFFF;
+    border: 0 none;
+    float: left;
+    padding-right: 10px;
+    text-transform: none;
+	font-size:14px;
+}
+
+.indentleft{overflow:hidden;}
+
+.margin_top{ padding-top:5px;}
+.margin_bottomoff{margin-bottom:0 !important;}
+.margin_bottom_small{margin-bottom:5px;}
+.margin_bottom_middle{margin-bottom:12px;}
+.margin_bottom_large{margin-bottom:16px;}
+.margin_bottom_extralarge{margin-bottom:25px;}
+.textCenter{text-align:center;}
+.textMiddle{ padding:10px 0px 20px;}
+.center{ margin:0 auto!important; float:none; display:block;}
+.nomargin{margin-right:0}
+.nopadding{ padding-right:0px;}
+.displayblock{display:block;}
+
+.breadcrumb{ color:#666; margin-bottom:20px;}
+
+/*=== Products ===*/
+.product-wrapper{ padding:15px 15px 10px;  text-align:center;}
+.product-wrapper .new{ background:url(../images/new.png) no-repeat; width:22px; height:69px; position:absolute; top:0px; right:17px;}
+.product-wrapper h3{ font-size:13px; }
+
+.price-cart-wrapper{ padding:10px 0px 0px;}
+.price-cart-wrapper .price{ float:left; font-size:13px;}
+.price-cart-wrapper .cart{ float:right;  padding-top:5px; line-height:normal;}
+.price-cart-wrapper .more, .price-cart-wrapper .buy{text-indent:-9999px; display:inline-block; width:16px;  }
+.price-cart-wrapper .more{ margin-right:5px;}
+.price-cart-wrapper .buy{ margin-left:5px; }
+
+/*=== Featured Products ===*/
+.featured-products{ margin-bottom:10px;}
+
+
+/*=== New Products ===*/
+
+
+
+/*=== Highlight Content ===*/
+.highlight-content {
+    clear: both;
+    margin: 0 0 0;
+    padding: 0 0 20px;
+    text-align: center;
+}
+.highlight-content h4 {
+	line-height:24px;
+	margin-bottom:5px;
+}
+.highlight-content em{ font-size:11px;}
+.highlight-content .top.separator {
+    height: 1px;
+    margin-bottom: 23px;
+}
+.highlight-content .bottom.separator {
+    height: 1px;
+	margin-top:26px;
+    margin-bottom: 20px;
+	padding:0px;
+}
+
+
+
+.alert{ margin-bottom:20px; padding:10px 21px; width:35%;}
+			
+/*=== List ===*/
+ul.list{list-style-type: square; list-style-position:inside; padding:0; margin:0;}
+ul.list li{padding:3px 0 3px 0px; border-bottom:1px dotted #c3c3c3;}
+
+
+/*=== Post Shortcode ===*/
+.post-shortcode h2{margin-bottom:10px;}
+.post-shortcode h2 a{ font-weight:normal; font-size:16px; }
+.post-shortcode .date-wrapper{ float:left; text-align:center; margin-right:30px;}
+.post-shortcode .date-wrapper .date-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.post-shortcode .date-wrapper .month-value {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.post-shortcode .date-wrapper .year-value {
+    font-size: 14px;
+}
+
+
+/*=== Images ===*/
+img.scale-with-grid {
+	max-width: 100%;
+	height: auto;
+}
+
+/*=== Form & Button ===*/
+form{margin:0; padding:0;}
+
+input[type="text"],
+textarea, input[type="password"]{
+	padding:7px 5px;
+	font-size:11px;
+	margin-bottom:15px;
+}
+select{
+	padding:4px 2px;
+	font-size:11px;
+	margin-bottom:15px;	
+	}
+
+textarea{width:90%;}
+
+textarea:focus{outline:0;}
+
+.button, .button:visited, input[type="submit"], button{
+	padding:6px 13px 9px 13px;
+	cursor:pointer;
+	font-size:13px;
+	line-height:normal;
+}
+
+.button:hover, input[type="submit"]:hover, button:hover{text-decoration:none;}
+
+.button.small, input[type="submit"].small, button.small{font-size:12px; padding:8px 12px;}
+.button.medium, input[type="submit"].medium, button.medium{font-size:14px; padding:12px 14px;}
+.button.large, input[type="submit"].large, button.large{font-size:14px; padding:14px 20px;}
+
+/*=== Separator ===*/
+.separator{
+	display:block;
+	height:1px;
+	padding-top:20px;
+	margin:0px 0 40px;
+	text-align:center;
+	width:100%;
+	clear:both;
+}
+
+
+/*=== Dropcaps ===*/
+.dropcap1{
+	display:block;
+	float:left;
+	font-size:32px;
+	line-height:34px;
+	margin:4px 8px 0 0;
+
+}
+.dropcap2{
+	display: block;
+	float:left;
+	border-radius: 55px 55px 55px 55px;
+    display: block;
+    float: left;
+    font-size: 26px;
+    line-height: 47px;
+    margin: 6px 8px 0 0;
+    text-align: center;
+    width: 47px;	
+}
+.dropcap3{
+	display:block;
+	float:left;
+	font-size:26px;
+	line-height:35px;
+	width:47px;
+	height:40px;
+	text-align: center;
+	margin:6px 8px 0 0;
+	padding:5px 0;
+}
+
+/*== Highlight ==*/
+.highlight1{padding:2px 5px;}	
+.highlight2{padding:2px 5px;}
+
+/*=== Pullquotes ===*/
+.pullquote-right, .pullquote-left{
+	padding:0px 10px 0px 30px;
+	background-image:url(../images/quote.png);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	float:right;
+	font-style:italic;
+	font-size:12px;
+	letter-spacing:0px;
+	line-height:22px;
+	margin:0px 2px 20px 20px;
+	width:50%;
+	}
+.pullquote-left{float:left;margin-left:2px;margin-right:20px;}
+
+
+/*==== Tabs ====*/
+.tabcontainer{margin:0;}
+ul.tabs {
+	margin: 0;
+	margin-bottom:-1px;
+	padding: 0 0 0px 0;
+	list-style: none;
+	width: 100%;
+	float:left;
+}
+
+ul.tabs li {
+	float: left;
+	margin: 0 0;
+	padding: 0 30px;
+	overflow: hidden;
+	position: relative;
+	font-size:13px;
+}
+
+ul.tabs li a {
+	text-decoration: none;
+	display: block;
+	padding: 5px 0px;
+	outline: none;
+}
+
+.tab-content { }
+	
+ul.tabs li:hover{}
+.tab-body{padding:20px 30px 10px 30px; float:left;}
+
+
+/*==== jQuery Toggles ====*/
+#toggle{border: 0px }
+h2.trigger {
+	padding:0;
+	margin: 0 0 7px 0;
+	font-size:13px;
+	font-weight:normal;
+	cursor:pointer;
+}
+
+h2.trigger span {
+	text-decoration: none;
+	display: inline-block;
+	padding:10px 12px;
+	margin-right:20px;
+	font-size:14px;
+	font-weight:bold;
+}
+
+h2.active span{}
+h2.active {}
+
+.toggle_container {
+	margin: 0 0 7px 40px;
+	margin-top:-7px;
+	padding: 10px 20px;
+	overflow: hidden;
+	clear: both;
+}
+
+
+/*==== Tables ====*/
+table {border-collapse:separate;border-spacing:0;width:100%; margin-bottom:18px;}
+table,td,th { text-align:center; }
+th{padding:10px;}
+td{padding:10px;}
+tfoot td{border:0px;}
+th,tr:hover{}
+table {
+	text-align: left;
+	margin: 0 -1px 24px 0;
+	width: 100%;
+}
+tr th,
+thead th {
+	font-size: 13px;
+	line-height: 18px;
+	padding: 9px 24px;
+}
+tr td {
+	padding: 6px 24px;
+}
+tr.odd td {}
+
+
+
+/*============================================ SIDEBAR  =================================================*/
+
+.sidebar{ margin-left:-20px}
+.widget-title {
+	padding-bottom:9px;
+	font-size:13px;
+	line-height:20px;
+	text-transform:uppercase;
+}
+
+.sidebar ul{
+	list-style-type:none;
+	list-style-position:outside;
+	margin:0;
+	padding:0;
+}
+
+.sidebar ul li{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	
+}
+.sidebar .widget-container{margin-bottom:40px; padding-bottom:0px; }
+.sidebar li.widget-container:last-child{margin-bottom:0; padding-bottom:10px}
+
+.sidebar li li{
+	list-style-type:none;
+	margin:0 0 4px 0;
+	padding:0 0 4px 13px;
+}
+
+.sidebar li li:last-child{ margin-bottom:0;}
+
+.sidebar li li a{ font-size:12px;}
+.sidebar li li a:hover, .sidebar li li a.active{text-decoration:none;}
+
+.sidebar .textwidget{}
+.sidebar .textwidget p{ margin-bottom:10px;}
+
+
+
+/*==== Gallery Widget ====*/
+ul.flickr{list-style-type:none; padding:0; margin:0;}
+ul.flickr li{ float:left; margin-right:10px !important;}
+ul.flickr li.nomargin{margin-right:0 !important;}
+
+/*==== Testimonial Widget ====*/
+.testimonial-widget{}
+.testimonial-widget h6{line-height:20px; margin-bottom:10px}
+.testimonial-widget .alignleft{margin-right:10px;}
+.testimonial-widget .quote{ display:block; padding:5px 0 0 0; font-size:13px; font-style:italic}
+
+/*==== Tag ====*/
+.tags a{padding:5px 10px!important; margin:0 0px 3px 0 !important; display:inline-block; font-size:11px; font-weight:bold;}
+.tags a:hover{}
+
+/*==== Recent post widget ====*/
+.sp-widget li{padding: 0 0 16px !important;  background:none!important; list-style:none!important; text-align:center;}
+.sp-widget li.last{margin:0 !important; padding:0 !important;}
+.sp-widget li h3{font-size:12px; margin-bottom:8px; font-weight:normal; text-transform:none;}
+
+
+
+/*============================================ FOOTER =================================================*/
+#footer{ margin-top:20px;}
+
+/*=== Elastislide Style ===*/
+.es-carousel-wrapper{
+	padding:0px 0px;
+	margin:5px 0 0 0;
+	position:relative;
+}
+.es-carousel{
+	overflow:hidden;
+	padding:20px 0px 10px;
+	width:90%;
+	margin:0 auto;
+}
+.es-carousel ul{
+	display:none;
+}
+.es-carousel ul li{
+	height:100%;
+	float:left;
+	display:block;
+}
+.es-carousel ul li a{
+	display:block;
+}
+.es-carousel ul li a img{
+	display:block;
+	border:none;
+	max-height:100%;
+	max-width:100%;
+}
+.es-nav{right:0px; top:37px; position:absolute; width:100%;}
+.es-nav span{
+	display:block!important;
+	width:7px;
+	height:11px;
+	position:absolute;
+	cursor:pointer;
+	color:#f00;
+	text-indent:-9000px!important;
+}
+.es-nav span.es-nav-next{
+	background:url(../images/nav-next.png) no-repeat top;
+	right:18px;
+}
+.es-nav span.es-nav-prev{
+	background:url(../images/nav-prev.png) no-repeat top;
+	left:18px;
+	
+}
+.es-nav span:hover{ background-position:0 -18px;}
+
+
+
+/*==== FOOTER SIDEBAR  ====*/
+#footersidebar{padding:51px 0 20px 0;}
+#footersidebar ul{list-style-type:none; margin:0; padding:0;}
+#footersidebar li.widget-container{list-style-type:none; margin:0 0 20px 0; padding:0; border:0px;}
+#footersidebar .widget-title{
+	font-size:14px;
+	padding:0 0 13px 0;
+	margin-bottom:18px;
+}
+#footersidebar li li{padding:0 0 0px 0px; margin:0 0 5px 0;}
+#footersidebar li li:last-child{ border-bottom:0px;}
+#footersidebar li a{ padding:0px; margin:0px;}
+#footersidebar li a:hover{ text-decoration:none;}
+
+/*==== COPYRIGHT ====*/
+#copyright{ padding:20px 10px; font-size:11px; float:left;}
+#copyright a, #copyright a:visited{}
+
+/* Social */
+.sn{list-style-type:none; margin:0 0 0 0; padding:16px 10px 0 0px; float:right;} 
+.sn li{list-style-type:none; margin:0; padding:0 0px 0 5px; display:inline; background:transparent} 
+.sn span{height:23px; width:23px; display:inline-block;
+	  -webkit-transition: all 0.4s ease;  /* Saf3.2+, Chrome */
+     -moz-transition: all 0.4s ease;  /* FF4+ */
+       -o-transition: all 0.4s ease;  /* Opera 10.5+ */
+          transition: all 0.4s ease;
+}
+.sn .icon-img{background-position:0 -31px !important;}
+.sn .icon-img:hover{background-position:0 0px !important;}

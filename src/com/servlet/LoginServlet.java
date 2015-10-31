@@ -1,12 +1,16 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.dao.OrderDao;
 import com.dao.UserDao;
+import com.entity.Order;
 import com.entity.User;
 
 public class LoginServlet extends HttpServlet {
@@ -73,10 +77,15 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserDao userDao = new UserDao();
+			
 		User user=userDao.getUserByUserName(username);
 		if(!password.isEmpty()&&user.getPassword().equals(password)){
 			//if password is correct 
 			request.getSession().setAttribute("user", user);
+			//save orders into session
+			OrderDao orderDao=new OrderDao();
+			ArrayList<Order> orders=orderDao.getOrdersByUserId(user.getId());
+			request.getSession().setAttribute("orders", orders);
 			response.sendRedirect(request.getContextPath()+"/index.jsp");
 		}else if(password.isEmpty()){
 			request.getSession().setAttribute("passwordError", "empty");
